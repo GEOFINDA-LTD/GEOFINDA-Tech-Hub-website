@@ -13,37 +13,39 @@ export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/images/gth-logo.png"
-            alt="GEOFINDA Tech Hub logo"
-            width={36}
-            height={36}
-            className="h-9 w-9"
-          />
-          <div className="flex flex-col leading-none">
-            <span className="text-lg font-bold tracking-wide text-foreground">
+    <header className="sticky top-0 z-50 border-b border-border/30 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div className="relative">
+            <Image
+              src="/images/gth-logo.png"
+              alt="GEOFINDA Tech Hub logo"
+              width={36}
+              height={36}
+              className="h-10 w-10"
+            />
+          </div>
+          <div className="flex flex-col leading-tight">
+            <span className="text-sm font-bold tracking-tight text-foreground">
               GEOFINDA
             </span>
-            <span className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground">
+            <span className="text-[9px] font-semibold tracking-widest text-primary">
               TECH HUB
             </span>
           </div>
         </Link>
 
         {/* Desktop navigation */}
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-8 md:flex">
           {navigationItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                  "text-sm font-semibold transition-all relative pb-1",
                   pathname === item.href
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                    ? "text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary"
+                    : "text-foreground/70 hover:text-foreground"
                 )}
               >
                 {item.label}
