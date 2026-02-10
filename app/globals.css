@@ -10,6 +10,10 @@
 
 @layer base {
   :root {
+    /* Font variables */
+    --font-montserrat: system-ui, -apple-system, sans-serif;
+    --font-jetbrains-mono: 'JetBrains Mono', monospace;
+    
     /* Brand Colors - GEOFINDA */
     --primary: 200 90% 52%;           /* Primary Blue: #35A8D2 */
     --secondary: 90 65% 50%;           /* Secondary Green: #61BA49 */
