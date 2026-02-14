@@ -1,19 +1,21 @@
-import React from "react"
-import type { Metadata } from "next"
-import { Montserrat, JetBrains_Mono } from "next/font/google"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import React from "react";
+import type { Metadata } from "next";
+import { Montserrat, JetBrains_Mono } from "next/font/google";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
-import "./globals.css"
+import "./globals.css";
 
-const _montserrat = Montserrat({
+const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-})
-const _jetbrainsMono = JetBrains_Mono({
+  display: "swap",
+});
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
-})
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -22,20 +24,23 @@ export const metadata: Metadata = {
   },
   description:
     "We build, advise, support, and extend technology capabilities. Whatever your situation, we can help you move forward with clarity and confidence.",
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${_montserrat.variable} ${_jetbrainsMono.variable}`}>
+    <html
+      lang="en"
+      className={`${montserrat.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="font-sans antialiased">
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
       </body>
     </html>
-  )
+  );
 }

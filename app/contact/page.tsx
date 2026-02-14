@@ -1,14 +1,14 @@
-import type { Metadata } from "next"
-import { Mail } from "lucide-react"
-import { PageHero, Section } from "@/components/section"
-import { ContactForm } from "@/components/contact-form"
-import { siteConfig } from "@/lib/data"
+import type { Metadata } from "next";
+import { Mail } from "lucide-react";
+import { PageHero, Section } from "@/components/section";
+import { ContactForm } from "@/components/contact-form";
+import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Tell us about your situation. Whether you have a clear brief or just a rough idea, we are happy to listen.",
-}
+};
 
 export default function ContactPage() {
   return (
@@ -23,46 +23,44 @@ export default function ContactPage() {
         <div className="grid gap-12 lg:grid-cols-3">
           {/* Sidebar info */}
           <div className="lg:col-span-1">
-            <h3 className="text-lg font-semibold text-foreground">
+            <h3 className="text-xl font-semibold text-foreground">
               What to expect
             </h3>
-            <div className="mt-4 flex flex-col gap-4">
-              <div className="rounded-lg bg-muted p-4">
-                <h4 className="text-sm font-medium text-foreground">
+            <div className="mt-6 flex flex-col gap-5">
+              <div className="rounded-2xl bg-gradient-to-br from-muted to-muted/50 p-6 transition-all duration-200 hover:shadow-sm">
+                <h4 className="text-base font-medium text-foreground">
                   No obligation
                 </h4>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-base leading-relaxed text-muted-foreground">
                   An initial conversation is always free and without commitment.
                 </p>
               </div>
-              <div className="rounded-lg bg-muted p-4">
-                <h4 className="text-sm font-medium text-foreground">
+              <div className="rounded-2xl bg-gradient-to-br from-muted to-muted/50 p-6 transition-all duration-200 hover:shadow-sm">
+                <h4 className="text-base font-medium text-foreground">
                   Quick response
                 </h4>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-base leading-relaxed text-muted-foreground">
                   We typically respond within one to two business days.
                 </p>
               </div>
-              <div className="rounded-lg bg-muted p-4">
-                <h4 className="text-sm font-medium text-foreground">
+              <div className="rounded-2xl bg-gradient-to-br from-muted to-muted/50 p-6 transition-all duration-200 hover:shadow-sm">
+                <h4 className="text-base font-medium text-foreground">
                   Your words, not ours
                 </h4>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Use the form to describe your situation however feels
-                  natural. There is no template to follow.
+                <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                  Use the form to describe your situation however feels natural.
+                  There is no template to follow.
                 </p>
               </div>
             </div>
 
-            <div className="mt-8 border-t border-border pt-6">
-              <p className="text-sm text-muted-foreground">
-                Prefer email?
-              </p>
+            <div className="mt-10 border-t border-border pt-8">
+              <p className="text-base text-muted-foreground">Prefer email?</p>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                className="mt-3 inline-flex items-center gap-2 text-base font-medium text-brand-blue transition-colors hover:text-brand-blue-deep"
               >
-                <Mail className="h-4 w-4" />
+                <Mail className="h-5 w-5" />
                 {siteConfig.contact.email}
               </a>
             </div>
@@ -75,5 +73,5 @@ export default function ContactPage() {
         </div>
       </Section>
     </>
-  )
+  );
 }
