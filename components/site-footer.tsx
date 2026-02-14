@@ -1,32 +1,20 @@
-import Link from "next/link"
-import Image from "next/image"
-import { siteConfig, navigationItems } from "@/lib/data"
+import Link from "next/link";
+import { siteConfig, navigationItems } from "@/lib/data";
+import { Logo } from "@/components/logo";
+import { Button } from "@/components/ui/button";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-3">
-          {/* Brand */}
+    <footer className="relative overflow-hidden border-t border-border bg-gradient-to-b from-card to-muted/50">
+      {/* Subtle decorative gradient */}
+      <div className="pointer-events-none absolute -right-40 bottom-0 h-[300px] w-[300px] rounded-full bg-brand-blue/3 blur-[100px]" />
+
+      <div className="relative mx-auto max-w-7xl px-8 py-20">
+        <div className="grid gap-16 md:grid-cols-3">
+          {/* Brand — full logo with wordmark */}
           <div>
-            <Link href="/" className="inline-flex items-center gap-3">
-              <Image
-                src="/images/gth-logo.png"
-                alt="GEOFINDA Tech Hub logo"
-                width={32}
-                height={32}
-                className="h-8 w-8"
-              />
-              <div className="flex flex-col leading-none">
-                <span className="text-lg font-bold tracking-wide text-foreground">
-                  GEOFINDA
-                </span>
-                <span className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground">
-                  TECH HUB
-                </span>
-              </div>
-            </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            <Logo variant="full" size="md" />
+            <p className="mt-6 max-w-sm text-base leading-relaxed text-muted-foreground">
               Building, advising, supporting, and extending technology
               capabilities with clarity and care.
             </p>
@@ -34,15 +22,15 @@ export function SiteFooter() {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="text-base font-semibold uppercase tracking-wider text-foreground">
               Navigation
             </h3>
-            <ul className="mt-4 flex flex-col gap-2.5">
+            <ul className="mt-6 flex flex-col gap-3">
               {navigationItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-base text-muted-foreground transition-colors duration-200 hover:text-brand-blue"
                   >
                     {item.label}
                   </Link>
@@ -53,32 +41,34 @@ export function SiteFooter() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="text-base font-semibold uppercase tracking-wider text-foreground">
               Get in Touch
             </h3>
-            <div className="mt-4 flex flex-col gap-2.5">
+            <div className="mt-6 flex flex-col gap-4">
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                className="text-base text-muted-foreground transition-colors duration-200 hover:text-brand-blue"
               >
                 {siteConfig.contact.email}
               </a>
-              <Link
-                href="/contact"
-                className="inline-flex w-fit items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                Start a Conversation
-              </Link>
+              <Button variant="gradient" size="sm" className="w-fit" asChild>
+                <Link href="/contact">Start a Conversation</Link>
+              </Button>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border pt-8">
-          <p className="text-xs text-muted-foreground">
+        <div className="mt-16 flex flex-col gap-5 border-t border-border pt-10 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-muted-foreground">
             {`\u00A9 ${new Date().getFullYear()} ${siteConfig.name}. All rights reserved.`}
           </p>
+          {/* Gradient brand mark */}
+          <div className="flex h-1 w-16 overflow-hidden rounded-full">
+            <div className="w-1/2 gradient-blue" />
+            <div className="w-1/2 gradient-green" />
+          </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

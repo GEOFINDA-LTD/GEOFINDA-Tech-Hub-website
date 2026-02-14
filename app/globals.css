@@ -10,39 +10,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 0 0% 23%;
+    /* Brand gradient stops */
+    --blue-light: #4CC3E0;
+    --blue-mid: #1E9BD1;
+    --blue-deep: #0F6FA3;
+    --green-light: #A6D93A;
+    --green-mid: #61BA49;
+    --green-deep: #0E6B2E;
+    --inner-dark: #0C5876;
+
+    --background: 200 20% 99%;
+    --foreground: 200 15% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 23%;
+    --card-foreground: 200 15% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 23%;
-    --primary: 195 63% 52%;
+    --popover-foreground: 200 15% 15%;
+    --primary: 197 74% 47%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 195 14% 94%;
-    --secondary-foreground: 193 13% 21%;
-    --muted: 195 10% 95%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 109 44% 51%;
+    --secondary: 200 20% 96%;
+    --secondary-foreground: 197 80% 22%;
+    --muted: 200 15% 96%;
+    --muted-foreground: 200 8% 42%;
+    --accent: 109 56% 44%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 195 12% 89%;
-    --input: 195 12% 89%;
-    --ring: 195 63% 52%;
-    --chart-1: 195 63% 52%;
-    --chart-2: 109 44% 51%;
-    --chart-3: 193 13% 21%;
+    --border: 200 15% 91%;
+    --input: 200 15% 91%;
+    --ring: 197 74% 47%;
+    --chart-1: 197 74% 47%;
+    --chart-2: 109 56% 44%;
+    --chart-3: 193 80% 22%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 23%;
-    --sidebar-primary: 195 63% 52%;
+    --sidebar-foreground: 200 15% 15%;
+    --sidebar-primary: 197 74% 47%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 195 10% 95%;
-    --sidebar-accent-foreground: 193 13% 21%;
-    --sidebar-border: 195 12% 89%;
-    --sidebar-ring: 195 63% 52%;
+    --sidebar-accent: 200 15% 96%;
+    --sidebar-accent-foreground: 197 80% 22%;
+    --sidebar-border: 200 15% 91%;
+    --sidebar-ring: 197 74% 47%;
   }
 }
 
@@ -53,4 +62,134 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ─── Brand Gradient Utilities ───────────────────────────────── */
+
+@layer utilities {
+  .gradient-blue {
+    background: linear-gradient(135deg, #4CC3E0 0%, #1E9BD1 50%, #0F6FA3 100%);
+  }
+  .gradient-green {
+    background: linear-gradient(135deg, #A6D93A 0%, #61BA49 50%, #0E6B2E 100%);
+  }
+  .gradient-brand {
+    background: linear-gradient(135deg, #4CC3E0 0%, #1E9BD1 30%, #0F6FA3 50%, #61BA49 70%, #0E6B2E 100%);
+  }
+  .gradient-hero {
+    background: linear-gradient(160deg, #0C5876 0%, #0F6FA3 40%, #0C5876 70%, #0E4A30 100%);
+  }
+  .gradient-dark {
+    background: linear-gradient(160deg, #071B24 0%, #0C5876 50%, #0A3D1E 100%);
+  }
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #4CC3E0 0%, #1E9BD1 50%, #0F6FA3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-green {
+    background: linear-gradient(135deg, #A6D93A 0%, #61BA49 50%, #0E6B2E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #4CC3E0 0%, #1E9BD1 40%, #61BA49 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-border {
+    position: relative;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #4CC3E0 0%, #1E9BD1 40%, #61BA49 70%, #0E6B2E 100%);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+  .gradient-border:hover::before {
+    opacity: 0.6;
+  }
+}
+
+/* ─── Modern Animations ──────────────────────────────────────── */
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(30, 155, 209, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(30, 155, 209, 0.3); }
+}
+
+@layer utilities {
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+  .animate-float-in {
+    animation: float-in 0.6s ease-out both;
+  }
+  .animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+}
+
+/* ─── Glass Morphism ─────────────────────────────────────────── */
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+  .glass-dark {
+    background: rgba(12, 88, 118, 0.3);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+}
+
+/* ─── Modern Selection ───────────────────────────────────────── */
+
+::selection {
+  background: rgba(30, 155, 209, 0.2);
+  color: inherit;
+}
+
+/* ─── Smooth Scroll ──────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
 }
