@@ -4,12 +4,9 @@ import { ArrowRight, Check } from "lucide-react";
 import { PageHero, Section, SectionHeader } from "@/components/section";
 import { Button } from "@/components/ui/button";
 import { engagementModels } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Packages",
-  description:
-    "Understand the typical ways we engage. From building end-to-end to extending your team, we structure work around your needs.",
-};
+export const metadata: Metadata = pageMetadata.packages;
 
 export default function PackagesPage() {
   return (

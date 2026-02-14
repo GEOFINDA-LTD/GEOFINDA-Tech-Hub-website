@@ -5,12 +5,9 @@ import { ArrowRight, Target, Clock, RefreshCw, Users } from "lucide-react";
 import { PageHero, Section, SectionHeader } from "@/components/section";
 import { Button } from "@/components/ui/button";
 import { deliveryModels } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Delivery Models",
-  description:
-    "How we structure collaboration. From fixed-scope projects to dedicated engineering pods, we adapt delivery to the nature of the work.",
-};
+export const metadata: Metadata = pageMetadata.delivery;
 
 const iconMap: Record<string, React.ReactNode> = {
   Target: <Target className="h-7 w-7" />,

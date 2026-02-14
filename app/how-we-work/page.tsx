@@ -4,12 +4,9 @@ import { ArrowRight } from "lucide-react";
 import { PageHero, Section, SectionHeader } from "@/components/section";
 import { Button } from "@/components/ui/button";
 import { processSteps, values } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "How We Work",
-  description:
-    "Our process is built on clarity, collaboration, and honest communication. Learn how we approach every engagement.",
-};
+export const metadata: Metadata = pageMetadata["how-we-work"];
 
 export default function HowWeWorkPage() {
   return (

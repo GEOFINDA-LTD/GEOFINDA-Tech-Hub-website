@@ -9,12 +9,9 @@ import {
 } from "@/components/section";
 import { Button } from "@/components/ui/button";
 import { values } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "GEOFINDA exists to build, advise, support, and extend technology capabilities with clarity, care, and craftsmanship.",
-};
+export const metadata: Metadata = pageMetadata.about;
 
 export default function AboutPage() {
   return (

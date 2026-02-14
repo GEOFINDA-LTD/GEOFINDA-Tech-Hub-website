@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { PageHero, Section } from "@/components/section";
 import { ContactForm } from "@/components/contact-form";
 import { siteConfig } from "@/lib/data";
+import { ObfuscatedLink } from "@/components/obfuscated-link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Tell us about your situation. Whether you have a clear brief or just a rough idea, we are happy to listen.",
-};
+export const metadata: Metadata = pageMetadata.contact;
 
 export default function ContactPage() {
   return (
@@ -55,14 +53,23 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-10 border-t border-border pt-8">
-              <p className="text-base text-muted-foreground">Prefer email?</p>
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
-                className="mt-3 inline-flex items-center gap-2 text-base font-medium text-brand-blue transition-colors hover:text-brand-blue-deep"
-              >
-                <Mail className="h-5 w-5" />
-                {siteConfig.contact.email}
-              </a>
+              <p className="text-base text-muted-foreground">
+                Prefer to reach us directly?
+              </p>
+              <div className="mt-3 flex flex-col gap-3">
+                <ObfuscatedLink
+                  encoded={siteConfig.contact.email}
+                  type="mailto"
+                  icon={<Mail className="h-5 w-5" />}
+                  className="inline-flex items-center gap-2 text-base font-medium text-brand-blue transition-colors hover:text-brand-blue-deep"
+                />
+                <ObfuscatedLink
+                  encoded={siteConfig.contact.phone}
+                  type="tel"
+                  icon={<Phone className="h-5 w-5" />}
+                  className="inline-flex items-center gap-2 text-base font-medium text-brand-blue transition-colors hover:text-brand-blue-deep"
+                />
+              </div>
             </div>
           </div>
 

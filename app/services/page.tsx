@@ -4,12 +4,9 @@ import { Layers, Monitor, Compass, Shield, Users, Check } from "lucide-react";
 import { PageHero, Section } from "@/components/section";
 import { capabilities } from "@/lib/data";
 import { CTASection } from "@/components/home/cta-section";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Explore our five core capability areas: custom software, web products, technology consulting, maintenance, and engineering capacity.",
-};
+export const metadata: Metadata = pageMetadata.services;
 
 const iconMap: Record<string, React.ReactNode> = {
   Layers: <Layers className="h-8 w-8" />,

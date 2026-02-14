@@ -34,7 +34,9 @@ export const siteConfig = {
   description:
     "We build, advise, support, and extend technology capabilities. Whatever your situation, we can help you move forward with clarity and confidence.",
   contact: {
-    email: "hello@geofinda.com",
+    // Encoded to prevent bot scraping — decoded client-side by ObfuscatedLink
+    email: [119,104,102,107,107,120,101,67,106,104,114,105,108,113,103,100,49,102,114,112],
+    phone: [51,58,60,54,55,52,53,53,60,54],
   },
 }
 
