@@ -4,24 +4,24 @@ import { siteConfig, navigationItems } from "@/lib/data"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-card">
+    <footer className="border-t border-border/30 bg-gradient-to-b from-background to-card/50">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <Link href="/" className="inline-flex items-center gap-3">
+            <Link href="/" className="inline-flex items-center gap-3 hover:opacity-80 transition-opacity">
               <Image
                 src="/images/gth-logo.png"
                 alt="GEOFINDA Tech Hub logo"
-                width={32}
-                height={32}
-                className="h-8 w-8"
+                width={40}
+                height={40}
+                className="h-10 w-10"
               />
-              <div className="flex flex-col leading-none">
-                <span className="text-lg font-bold tracking-wide text-foreground">
+              <div className="flex flex-col leading-tight">
+                <span className="text-base font-bold tracking-tight text-foreground">
                   GEOFINDA
                 </span>
-                <span className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground">
+                <span className="text-[9px] font-semibold tracking-widest text-primary">
                   TECH HUB
                 </span>
               </div>
@@ -34,15 +34,15 @@ export function SiteFooter() {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-foreground">
               Navigation
             </h3>
-            <ul className="mt-4 flex flex-col gap-2.5">
+            <ul className="mt-5 flex flex-col gap-3">
               {navigationItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-foreground/70 font-medium transition-all hover:text-primary hover:translate-x-1"
                   >
                     {item.label}
                   </Link>
@@ -53,19 +53,19 @@ export function SiteFooter() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-foreground">
               Get in Touch
             </h3>
-            <div className="mt-4 flex flex-col gap-2.5">
+            <div className="mt-5 flex flex-col gap-4">
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                className="text-sm font-medium text-foreground/70 transition-all hover:text-primary"
               >
                 {siteConfig.contact.email}
               </a>
               <Link
                 href="/contact"
-                className="inline-flex w-fit items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                className="inline-flex w-fit items-center rounded-lg bg-gradient-to-r from-primary to-primary/80 px-5 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
               >
                 Start a Conversation
               </Link>

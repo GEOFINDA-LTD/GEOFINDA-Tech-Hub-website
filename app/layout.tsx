@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${_montserrat.variable} ${_jetbrainsMono.variable}`}>
       <body className="font-sans antialiased">
         <SiteHeader />
         <main>{children}</main>

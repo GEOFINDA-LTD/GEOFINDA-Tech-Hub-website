@@ -29,17 +29,20 @@ export function SectionHeader({
   className,
 }: SectionHeaderProps) {
   return (
-    <div className={cn("max-w-2xl", className)}>
+    <div className={cn("max-w-3xl", className)}>
       {label && (
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
-          {label}
-        </p>
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 border border-primary/20">
+          <span className="h-2 w-2 rounded-full bg-primary"></span>
+          <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+            {label}
+          </span>
+        </div>
       )}
-      <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+      <h2 className="text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+        <p className="mt-5 text-pretty text-lg leading-relaxed text-foreground/60">
           {description}
         </p>
       )}
@@ -55,17 +58,23 @@ interface PageHeroProps {
 
 export function PageHero({ title, description, label }: PageHeroProps) {
   return (
-    <Section className="bg-[hsl(193,13%,21%)] pb-16 pt-16 md:pb-20 md:pt-20">
-      <div className="max-w-3xl">
+    <Section className="relative overflow-hidden bg-gradient-to-br from-accent via-accent/95 to-accent/90 pb-20 pt-24 md:pb-28 md:pt-32">
+      {/* Decorative elements */}
+      <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl -z-10"></div>
+      <div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-secondary/10 blur-3xl -z-10"></div>
+      
+      <div className="relative z-10 max-w-3xl">
         {label && (
-          <p className="mb-3 text-sm font-medium uppercase tracking-wider text-[hsl(195,63%,52%)]">
-            {label}
-          </p>
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 border border-white/30">
+            <span className="text-xs font-semibold uppercase tracking-wider text-white">
+              {label}
+            </span>
+          </div>
         )}
-        <h1 className="text-balance text-4xl font-bold tracking-tight text-[hsl(0,0%,100%)] md:text-5xl">
+        <h1 className="text-balance text-5xl font-bold tracking-tight text-white md:text-6xl">
           {title}
         </h1>
-        <p className="mt-6 text-pretty text-lg leading-relaxed text-[hsl(0,0%,100%)]/80">
+        <p className="mt-7 text-pretty text-lg leading-relaxed text-white/85">
           {description}
         </p>
       </div>
