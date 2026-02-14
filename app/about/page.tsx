@@ -19,7 +19,7 @@ export default function AboutPage() {
       <PageHero
         label="About"
         title="Technology partnership grounded in purpose."
-        description="GEOFINDA exists to help people and organizations move forward with technology. We combine deep technical capability with a commitment to clarity, honesty, and long-term thinking."
+        description="GEOFINDA Tech Hub exists to help people and organizations move forward with technology. We combine deep technical capability with a commitment to clarity, honesty, and long-term thinking."
       />
 
       {/* Purpose */}
@@ -37,8 +37,8 @@ export default function AboutPage() {
               change.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              We started GEOFINDA because we saw an opportunity to do things
-              differently. To be a technology partner that listens before
+              We started GEOFINDA Tech Hub because we saw an opportunity to do
+              things differently. To be a technology partner that listens before
               building, that values clarity over complexity, and that stays
               involved long enough to see real outcomes.
             </p>
