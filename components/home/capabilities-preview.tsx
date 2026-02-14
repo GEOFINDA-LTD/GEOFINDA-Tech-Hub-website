@@ -27,9 +27,25 @@ const gradientAccents = [
   "from-brand-blue-light/20 to-brand-green-light/10",
 ];
 
+const brandColors = [
+  "from-primary/20 to-primary/5",
+  "from-secondary/20 to-secondary/5",
+  "from-accent/20 to-accent/5",
+  "from-primary/20 to-primary/5",
+  "from-secondary/20 to-secondary/5",
+]
+
+const borderColors = [
+  "border-primary/30 hover:border-primary/50",
+  "border-secondary/30 hover:border-secondary/50",
+  "border-accent/30 hover:border-accent/50",
+  "border-primary/30 hover:border-primary/50",
+  "border-secondary/30 hover:border-secondary/50",
+]
+
 export function CapabilitiesPreview() {
   return (
-    <Section>
+    <Section className="py-24">
       <SectionHeader
         label="What We Do"
         title="Five capability areas. One technology partner."
@@ -59,7 +75,7 @@ export function CapabilitiesPreview() {
             </p>
             <div className="mt-5 flex items-center text-base font-medium text-brand-blue opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
               Learn more
-              <ArrowRight className="ml-1 h-3.5 w-3.5" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </div>
           </Link>
         ))}

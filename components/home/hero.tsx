@@ -52,6 +52,22 @@ export function Hero() {
             </Button>
           </div>
         </div>
+
+        {/* Stats line */}
+        <div className="mt-16 flex flex-wrap gap-8 text-sm">
+          <div>
+            <div className="font-bold text-lg text-primary">50+</div>
+            <div className="text-muted-foreground">Projects Delivered</div>
+          </div>
+          <div>
+            <div className="font-bold text-lg text-secondary">10+</div>
+            <div className="text-muted-foreground">Years Experience</div>
+          </div>
+          <div>
+            <div className="font-bold text-lg text-accent">100%</div>
+            <div className="text-muted-foreground">Client Satisfaction</div>
+          </div>
+        </div>
       </div>
     </section>
   );
