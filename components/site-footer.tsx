@@ -2,6 +2,7 @@ import Link from "next/link";
 import { siteConfig, navigationItems } from "@/lib/data";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { ObfuscatedLink } from "@/components/obfuscated-link";
 
 export function SiteFooter() {
   return (
@@ -45,12 +46,16 @@ export function SiteFooter() {
               Get in Touch
             </h3>
             <div className="mt-6 flex flex-col gap-4">
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
+              <ObfuscatedLink
+                encoded={siteConfig.contact.email}
+                type="mailto"
                 className="text-base text-muted-foreground transition-colors duration-200 hover:text-brand-blue"
-              >
-                {siteConfig.contact.email}
-              </a>
+              />
+              <ObfuscatedLink
+                encoded={siteConfig.contact.phone}
+                type="tel"
+                className="text-base text-muted-foreground transition-colors duration-200 hover:text-brand-blue"
+              />
               <Button variant="gradient" size="sm" className="w-fit" asChild>
                 <Link href="/contact">Start a Conversation</Link>
               </Button>

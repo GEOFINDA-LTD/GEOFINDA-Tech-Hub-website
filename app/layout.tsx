@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Montserrat, JetBrains_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { rootMetadata, organizationJsonLd } from "@/lib/seo";
 
 import "./globals.css";
 
@@ -17,14 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "GEOFINDA Tech Hub",
-    template: "%s | GEOFINDA Tech Hub",
-  },
-  description:
-    "We build, advise, support, and extend technology capabilities. Whatever your situation, we can help you move forward with clarity and confidence.",
-};
+export const metadata: Metadata = rootMetadata;
 
 export default function RootLayout({
   children,
@@ -36,6 +30,15 @@ export default function RootLayout({
       lang="en"
       className={`${montserrat.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <meta name="apple-mobile-web-app-title" content="techhub" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+      </head>
       <body className="font-sans antialiased">
         <SiteHeader />
         <main>{children}</main>
